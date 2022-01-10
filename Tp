@@ -1,0 +1,157 @@
+    local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local checkpoints = game.Workspace.Checkpoints
+
+local check1 = checkpoints["Checkpoint 1"]
+local check2 = checkpoints["Checkpoint 2"]
+local check3 = checkpoints["Checkpoint 3"]
+local check4 = checkpoints["Checkpoint 4"]
+local check5 = checkpoints["Checkpoint 5"]
+local check6 = checkpoints["Checkpoint 6"]
+local check7 = checkpoints["Checkpoint 7"]
+local check8 = checkpoints["Checkpoint 8"]
+local check9 = checkpoints["Checkpoint 9"]
+local check10 = checkpoints["Checkpoint 10"]
+local check11 = checkpoints["Checkpoint 11"]
+local check12 = checkpoints["Checkpoint 12"]
+local check13 = checkpoints["Checkpoint 13"]
+local check14 = checkpoints["Checkpoint 14"]
+local check15 = checkpoints["Checkpoint 15"]
+local check16 = checkpoints["Checkpoint 16"]
+local check17 = checkpoints["Checkpoint 17"]
+local check18 = checkpoints["Checkpoint 18"]
+local check19 = checkpoints["Checkpoint 19"]
+local check20 = checkpoints["Checkpoint 20"]
+local check21 = checkpoints["Checkpoint 21"]
+local check22 = checkpoints["Checkpoint 22"]
+local check23 = checkpoints["Checkpoint 23"]
+local check24 = checkpoints["Checkpoint 24"]
+local check25 = checkpoints["Checkpoint 25"]
+local check26 = checkpoints["Checkpoint 26"]
+local check27 = checkpoints["Checkpoint 27"]
+local check28 = checkpoints["Checkpoint 28"]
+local check29 = checkpoints["Checkpoint 29"]
+local check30 = checkpoints["Checkpoint 30"]
+local check31 = checkpoints["Checkpoint 31"]
+local check32 = checkpoints["Checkpoint 32"]
+local check33 = checkpoints["Checkpoint 33"]
+local check34 = checkpoints["Checkpoint 34"]
+local check35 = checkpoints["Checkpoint 35"]
+local check36 = checkpoints["Checkpoint 36"]
+local check37 = checkpoints["Checkpoint 37"]
+local check38 = checkpoints["Checkpoint 38"]
+local check39 = checkpoints["Checkpoint 39"]
+local check40 = checkpoints["Checkpoint 40"]
+local check41 = checkpoints["Checkpoint 41"]
+local check42 = checkpoints["Checkpoint 42"]
+local check43 = checkpoints["Checkpoint 43"]
+local check44 = checkpoints["Checkpoint 44"]
+local check45 = checkpoints["Checkpoint 45"]
+local check46 = checkpoints["Checkpoint 46"]
+local check47 = checkpoints["Checkpoint 47"]
+local check48 = checkpoints["Checkpoint 48"]
+local check49 = checkpoints["Checkpoint 49"]
+
+
+    local pos = p1.CFrame
+
+    --p1.CFrame = game.Players[check1].Character.HumanoidRootPart.CFrame
+    
+    wait(0.01)
+    p1.CFrame = check1.CFrame
+        wait(2)
+    p1.CFrame = check2.CFrame
+        wait(2)
+    p1.CFrame = check3.CFrame
+        wait(2)
+    p1.CFrame = check4.CFrame
+        wait(2)
+    p1.CFrame = check5.CFrame
+        wait(2)
+    p1.CFrame = check6.CFrame
+        wait(2)
+    p1.CFrame = check7.CFrame
+        wait(2.01)
+    p1.CFrame = check8.CFrame
+        wait(2.01)
+    p1.CFrame = check9.CFrame
+        wait(2.01)
+    p1.CFrame = check10.CFrame
+        wait(2.01)
+    p1.CFrame = check11.CFrame
+        wait(2.01)
+    p1.CFrame = check12.CFrame
+        wait(2.01)
+    p1.CFrame = check13.CFrame
+        wait(2.01)
+    p1.CFrame = check14.CFrame
+        wait(2.01)
+    p1.CFrame = check15.CFrame
+        wait(2.01)
+    p1.CFrame = check16.CFrame
+        wait(2.01)
+    p1.CFrame = check17.CFrame
+        wait(2.01)
+    p1.CFrame = check18.CFrame
+        wait(2.01)
+    p1.CFrame = check19.CFrame
+        wait(2.01)
+    p1.CFrame = check20.CFrame
+        wait(2.01)
+    p1.CFrame = check21.CFrame
+        wait(2.01)
+    p1.CFrame = check22.CFrame
+        wait(2.01)
+    p1.CFrame = check23.CFrame
+        wait(2.01)
+    p1.CFrame = check24.CFrame
+        wait(2.01)
+    p1.CFrame = check25.CFrame
+        wait(2.01)
+    p1.CFrame = check26.CFrame
+        wait(2.01)
+    p1.CFrame = check27.CFrame
+        wait(2.01)
+    p1.CFrame = check28.CFrame
+        wait(2.01)
+    p1.CFrame = check29.CFrame
+        wait(2.01)
+    p1.CFrame = check30.CFrame
+        wait(2.01)
+    p1.CFrame = check31.CFrame
+        wait(2.01)
+    p1.CFrame = check32.CFrame
+        wait(2.01)
+    p1.CFrame = check33.CFrame
+        wait(2.01)
+    p1.CFrame = check34.CFrame
+        wait(2.01)
+    p1.CFrame = check35.CFrame
+        wait(2.01)
+    p1.CFrame = check36.CFrame
+        wait(2.01)
+    p1.CFrame = check37.CFrame
+        wait(2.01)
+    p1.CFrame = check38.CFrame
+        wait(2.01)
+    p1.CFrame = check39.CFrame
+        wait(2.01)
+    p1.CFrame = check40.CFrame
+        wait(2.01)
+    p1.CFrame = check41.CFrame
+        wait(2.01)
+    p1.CFrame = check42.CFrame
+        wait(2.01)
+    p1.CFrame = check43.CFrame
+        wait(2.01)
+    p1.CFrame = check44.CFrame
+        wait(2.01)
+    p1.CFrame = check45.CFrame
+        wait(2.01)
+    p1.CFrame = check46.CFrame
+        wait(2.01)
+    p1.CFrame = check47.CFrame
+        wait(2.01)
+    p1.CFrame = check48.CFrame
+        wait(2.01)
+    p1.CFrame = check49.CFrame
+    
