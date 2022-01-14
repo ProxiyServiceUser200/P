@@ -1,0 +1,128 @@
+-- // Thanks to https://v3rmillion.net/member.php?action=profile&uid=182471 for the kill mechanism (I edited it up a bit)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Warships", "Midnight")
+local MainTab = Window:NewTab("Main")
+local MainSection = MainTab:NewSection("Attack")
+local TargetTable = {"All"}
+local ReplicatedStorage = game:GetService("ReplicatedStorage");
+local ServerEvents = ReplicatedStorage:WaitForChild("ServerEvents");
+local Target = game.Players.LocalPlayer.Name
+local PlayerDropdown
+local Movement = MainTab:NewSection("Movement")
+local ShipSpeed
+local ShipFire
+if type(getgenv().RemoteCode) ~= "number" then
+    getgenv().RemoteCode = ServerEvents.SK:InvokeServer()
+end
+
+for i,v in ipairs(game:GetService("Workspace").CombatZone.Ships:GetChildren()) do
+    table.insert(TargetTable, v.Name)
+end
+
+game:GetService("Workspace").CombatZone.Ships.ChildRemoved:Connect(function(Child)
+    table.remove(TargetTable, table.find(TargetTable, Child.Name))
+    task.wait(0.05)
+    PlayerDropdown:Refresh(TargetTable)
+end)
+
+game:GetService("Workspace").CombatZone.Ships.ChildAdded:Connect(function(Child)
+    table.insert(TargetTable, Child.Name)
+    task.wait(0.05)
+    PlayerDropdown:Refresh(TargetTable)
+end)
+
+PlayerDropdown = MainSection:NewDropdown("Select Player", "Selects a player to attack", TargetTable, function(currentOption)
+    if currentOption == "All" then
+        Target = "All"
+    elseif currentOption ~= "All" then
+        Target = currentOption
+    end
+end)
+
+local Sayings = {
+    "gg",
+    "ggez",
+    "you all are horrible",
+    "get better next time",
+    "i've just got a good gaming chair wym",
+    "i'm not even trying",
+    "so when are you going to get better at the game",
+    "i'm not even trying",
+    "hop off kid",
+    "health? no problem",
+    "why havent you left the game yet",
+    "almost to that freemium ship...",
+    "wait but who asked"
+}
+
+local function Chat(Message)
+    task.wait(0.1)
+    local args = {
+        [1] = Message,
+        [2] = "All"
+    }
+
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+end
+
+ShipFire = MainSection:NewToggle("Attack Target", "Kills the target until toggled off", function(state)
+    if state == true then
+        if Target == "All" then
+            for Count = 1, 20 do
+                for i,v in pairs(game.Workspace.CombatZone.Ships:GetChildren()) do
+                    if game.Players[v.Name].Team.Name ~= game.Players.LocalPlayer.Team.Name then
+                        task.wait(0.01)
+                    local projArgs = {
+                        game:GetService("Workspace").CombatZone.Ships[game.Players.LocalPlayer.Name],
+                        game:GetService("Workspace").CombatZone.Ships[game.Players.LocalPlayer.Name].Gun.Barrel.BulletPos,
+                        Vector3.new(v.Base.Position.X, v.Base.Position.Y, v.Base.Position.Z),
+                        Vector3.new(-15,0,-15),
+                        500,
+                        "Primary",
+                        getgenv().RemoteCode
+                    }
+                    game:GetService("ReplicatedStorage").ServerEvents.FireProjectile:FireServer(unpack(projArgs))
+                    end
+                end
+            end
+            ShipFire:UpdateToggle("Attack Target")
+            local SelectedSaying = Sayings[math.random(1, #Sayings)]
+            Chat(SelectedSaying)
+        elseif Target ~= "All" and table.find(TargetTable, Target) then
+            for Count = 1, 20 do
+                for i,v in pairs(game.Workspace.CombatZone.Ships:GetChildren()) do
+                    if game.Players[v.Name].Team.Name ~= game.Players.LocalPlayer.Team.Name then
+                        task.wait(0.01)
+                        if v.Name == Target then
+                            local projArgs = {
+                                game:GetService("Workspace").CombatZone.Ships[game.Players.LocalPlayer.Name],
+                                game:GetService("Workspace").CombatZone.Ships[game.Players.LocalPlayer.Name].Gun.Barrel.BulletPos,
+                                Vector3.new(v.Base.Position.X, v.Base.Position.Y, v.Base.Position.Z),
+                                Vector3.new(-15,0,-15),
+                                500,
+                                "Primary",
+                                getgenv().RemoteCode
+                            }
+                            game:GetService("ReplicatedStorage").ServerEvents.FireProjectile:FireServer(unpack(projArgs))
+                        end
+                    end
+                end
+            end
+            ShipFire:UpdateToggle("Attack Target")
+            local SelectedSaying = Sayings[math.random(1, #Sayings)]
+            Chat(SelectedSaying)
+        end
+    elseif state == false then
+        return
+    end
+end)
+
+ShipSpeed = Movement:NewSlider("Ship Speed", "Sets the speed of the ship", 200, -100, function(value)
+    task.wait(0.05)
+    local args = {
+        [1] = value,
+        [2] = getgenv().RemoteCode
+    }
+
+    game:GetService("ReplicatedStorage").ServerEvents.UpdateShipSpeed:FireServer(unpack(args))
+end)
